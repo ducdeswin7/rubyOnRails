@@ -1,0 +1,17 @@
+<!-- Jumbotron Header -->
+<header class="jumbotron hero-spacer">
+  <h1>CAtegory Details</h1>
+</header>
+<hr>
+
+<div class="row">
+  <!-- /.col-md-8 -->
+  <div class="col-md-4">
+    <h1><%= @category.title %></h1>
+    <p><%= @category.description %></p>
+  </div>
+  <!-- /.col-md-4 -->
+</div>
+
+<%= link_to 'Edit', edit_category_path(@category), class: "btn btn-default" %> |
+<%= link_to 'Back', categories_path, class: "btn btn-default" %>

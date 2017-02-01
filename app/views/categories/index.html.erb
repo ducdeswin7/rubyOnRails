@@ -1,0 +1,46 @@
+<!-- Jumbotron Header -->
+<header class="jumbotron hero-spacer">
+  <h1>Category lists</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+  <p><%= link_to 'Add new category', new_category_path, class: "btn btn-default" %></p>
+</header>
+
+<!-- Page Features -->
+<div class="row text-center">
+
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @categories.each do |category| %>
+
+        <tr>
+          <th scope="row"><%= category.id %></th>
+          <td><%= category.title %></td>
+          <td><%= category.description %></td>
+          <td>
+            <%= link_to 'Show', category_path(category), class: "btn btn-primary" %>
+            <%= link_to 'Edit', edit_category_path(category),  class: "btn btn-primary" %>
+            <%= link_to 'Detroy', category_path(category),
+                        method: :delete,
+                        data: { confirm: 'Are you sure ?' },
+                        class: "btn btn-primary" %></td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @categories %>
+    </div>
+    <%= will_paginate @categories, :container => false %>
+  </div>
+
+
+</div>
